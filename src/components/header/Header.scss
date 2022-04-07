@@ -1,0 +1,27 @@
+.header{
+    background-color: #020203;
+    &__logo{
+        width: 178px;
+        height: auto;
+        cursor: pointer;
+    }
+    &__horizontal{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+    &__list{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+    }
+    &__list_name{
+        color: white;
+        list-style-type: none;
+        cursor: pointer;
+        font-size: 24px;
+    }
+}
