@@ -42,25 +42,24 @@ const Activity = () => {
         }
     ]
     return (
-        <ResponsiveContainer className="activity">
-          <BarChart
-            width={100}
-            height={100}
+        <ResponsiveContainer className="activity" width={835} height={320}>
+          <BarChart 
             data={data}
             margin={{
               top: 5,
               right: 30,
-              left: 20,
+              left: 0,
               bottom: 5,
             }}
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="day" />
-            <YAxis orientation="right"/>
+            <YAxis dataKey="kilogram" orientation="right"/>
+            <YAxis dataKey="calories" orientation="left" />
             <Tooltip />
             <Legend className="activity__bar"/>
-            <Bar dataKey="kilogram" fill="#282D30"/>
-            <Bar dataKey="calories" fill="#E60000" />
+            <Bar dataKey="kilogram" fill="#282D30" barSize={7} radius={[50,50,0,0]}/>
+            <Bar dataKey="calories" fill="#E60000" barSize={7} radius={[50,50,0,0]}/>
           </BarChart>
         </ResponsiveContainer>
       );
