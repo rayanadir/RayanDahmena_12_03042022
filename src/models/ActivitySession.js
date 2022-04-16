@@ -7,4 +7,8 @@ export class ActivitySession {
         this.kilogram=kilogram;
         this.calories=calories;
     }
+    static getUserAverageSessions=async(id)=>{
+        const url = `http://localhost:3000/user/${id}/average-sessions`;
+        return fetch(url).then((res)=> res.json());
+    }
 }

@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export class UserMainData{
     id;
     userInfos;
@@ -12,12 +10,8 @@ export class UserMainData{
         this.keyData=keyData;
         
     }
-    static getUserMainData(id){
+    static getUserMainData=async(id)=>{
         const url = `http://localhost:3000/user/${id}`;
-        axios.get(url).then((res)=> {
-            const data=res.data.data;
-            console.log(data);
-            return data;
-        })
+        return fetch(url).then((res)=>res.json());
     }
 }

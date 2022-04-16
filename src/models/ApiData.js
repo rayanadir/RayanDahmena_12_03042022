@@ -1,36 +1,23 @@
-import axios from "axios";
-
-export class ApiData{
-    static async getUserMainData(id){
+class ApiData{
+    static getUserMainData=async(id)=>{
         const url = `http://localhost:3000/user/${id}`;
-        axios.get(url).then((res)=> {
-            const data=res.data.data;
-            console.log(data);
-            return data;
-        })
+        return fetch(url).then((res)=>res.json());
     }
-    static async getUserActivity(id){
+    
+    static getUserActivity=async(id)=>{
         const url = `http://localhost:3000/user/${id}/activity`;
-        axios.get(url).then((res)=> {
-            const data=res.data.data;
-            console.log(data);
-            return data
-        })
+        return fetch(url).then((res)=> res.json());
     }
-   static async getUserPerformance(id){
+    
+    static getUserPerformance=async(id)=>{
         const url = `http://localhost:3000/user/${id}/performance`;
-        axios.get(url).then((res)=> {
-            const data=res.data.data;
-            console.log(data);
-            return data;
-        })
+        return fetch(url).then((res)=> res.json());
     }
-    static async getUserAverageSessions(id){
+    
+    static getUserAverageSessions=async(id)=>{
         const url = `http://localhost:3000/user/${id}/average-sessions`;
-        axios.get(url).then((res)=> {
-            const data=res.data.data;
-            console.log(data);
-            return data;
-        })
+        return fetch(url).then((res)=> res.json());
     }
 }
+
+export default ApiData
