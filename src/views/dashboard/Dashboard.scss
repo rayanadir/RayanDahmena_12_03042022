@@ -1,0 +1,19 @@
+.activity_charts{
+    display: flex;
+    flex-direction: column;
+    top: 300px;
+    left: 200px;
+    row-gap: 2rem;
+}
+
+.wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 8rem;
+}
+
+.activity_charts_cards{
+    display: flex;
+    align-items: center;
+}
