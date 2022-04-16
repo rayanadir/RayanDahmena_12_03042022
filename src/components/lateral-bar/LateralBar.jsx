@@ -9,7 +9,7 @@ const LateralBar = () => {
     const year= new Date().getFullYear()
     return(
         <React.StrictMode>
-            <header className="header lateral">
+            <section className="header lateral">
             <nav className="header__vertical">
                 <ul className="header__icons">
                     <li className="header__icon"><img src={yoga} alt="yoga" /></li>
@@ -19,7 +19,7 @@ const LateralBar = () => {
                 </ul>
                 <p className="header__copyrights">Copiryght, SportSee {year}</p>
             </nav>
-            </header>
+            </section>
         </React.StrictMode>
     )
 }
