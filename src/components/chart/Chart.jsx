@@ -1,6 +1,7 @@
 import '../chart/Chart.scss';
 import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,PieChart, Pie } from 'recharts';
+import ApiFormat from '../../models/ApiFormat';
 
 class Chart extends React.Component {
     constructor(props){
@@ -14,9 +15,18 @@ class Chart extends React.Component {
         }
     }
 
+    getValue=()=>{
+        if(this.state.type==="performance"){
+            return ApiFormat.formatUserPerformance(this.state.value);
+        }else if(this.state.type==="average_sessions"){
+
+        }else if(this.state.type==="score"){
+
+        }
+    }
     
     render(){
-        console.log(this.state.value);
+        const value=this.getValue();
         return (
             <div></div>
         )
