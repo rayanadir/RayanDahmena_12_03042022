@@ -2,6 +2,7 @@ import '../charts/Charts.scss';
 import React from 'react';
 import Chart from '../../components/chart/Chart';
 import ApiData from '../../models/ApiData';
+import ApiFormat from '../../models/ApiFormat';
 
 class Charts extends React.Component {
     constructor(props){
@@ -17,9 +18,18 @@ class Charts extends React.Component {
         }
     }
     componentDidMount = () => {
-        ApiData.getUserAverageSessions(this.state.id).then((res)=>{this.setState({sessions:res.data.sessions,loading_sessions:false})})
-        ApiData.getUserPerformance(this.state.id).then((res)=>{this.setState({performance:res.data,loading_performance:false})})
-        ApiData.getUserMainData(this.state.id).then((res)=>{this.setState({score:res.data.score || res.data.todayScore,loading_score:false})})
+        ApiData.getUserAverageSessions(this.state.id)
+        .then((res)=>{this.setState(
+            {sessions:res.data.sessions,
+            loading_sessions:false})});
+        ApiData.getUserPerformance(this.state.id)
+        .then((res)=>{this.setState(
+            {performance:res.data,
+            loading_performance:false})});
+        ApiData.getUserMainData(this.state.id)
+        .then((res)=>{this.setState(
+            {score:res.data.score || res.data.todayScore,
+            loading_score:false})});
     }
     render(){
         return this.state.loading_sessions === false && this.state.loading_performance===false && this.state.loading_score===false ? 
@@ -34,7 +44,6 @@ class Charts extends React.Component {
             <div></div>
         )
     }
-    
 }
 
 export default Charts
