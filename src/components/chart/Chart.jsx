@@ -1,7 +1,6 @@
 import '../chart/Chart.scss';
 import React from 'react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,PieChart, Pie } from 'recharts';
-import ApiFormat from '../../models/ApiFormat';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis,ResponsiveContainer,PieChart, Pie } from 'recharts';
 
 class Chart extends React.Component {
     constructor(props){
@@ -14,7 +13,7 @@ class Chart extends React.Component {
         }
     }
 
-    getData=()=>{
+    formatData=()=>{
         if(this.state.type==="performance"){
             let performance=[];
             const data=this.state.value.data;
@@ -43,12 +42,9 @@ class Chart extends React.Component {
     }
     
     render(){
-       const value= this.getData();
+       const value= this.formatData();
        console.log(value);
         return (
-            <div></div>
-        )
-        /*return (
         <React.StrictMode>
             {
                 this.state.type==="average_sessions" ? 
@@ -57,12 +53,11 @@ class Chart extends React.Component {
                     </div> : 
                 this.state.type==="performance" ?
                     <div className="chart performance">
-                        <ResponsiveContainer width="100%" height="100%">
-                            <RadarChart cx="50%" cy="50%" outerRadius="80%" data={this.state.value}>
-                            <PolarGrid />
-                            <PolarAngleAxis dataKey={this.state.value} />
-                            <PolarRadiusAxis />
-                            <Radar dataKey="value" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                        <ResponsiveContainer width="100%" height="80%" className="radar">
+                            <RadarChart outerRadius="80%" data={value} >
+                            <PolarGrid radialLines={false}/>
+                            <PolarAngleAxis dataKey="kind_value" stroke='white' tick={{fontSize:11}} tickLine={false} />
+                            <Radar dataKey="value" stroke="#FF0101B2" fill="#FF0101B2" fillOpacity={0.8} />
                             </RadarChart>
                         </ResponsiveContainer>
                     </div> :  
@@ -70,13 +65,19 @@ class Chart extends React.Component {
                     <div className="chart score">
                         <ResponsiveContainer width="100%" height="100%">
                             <PieChart width={400} height={400}>
-                            <Pie data={this.state.value} dataKey="value" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#FF0000" label />
+                                <Pie 
+                                data={this.state.value} 
+                                dataKey="value" 
+                                innerRadius={70} 
+                                outerRadius={90} 
+                                fill="#FF0000"
+                                startAngle={90} />
                             </PieChart>
                         </ResponsiveContainer>
                     </div> : "" 
             }
         </React.StrictMode>
-        )*/
+        )
     }
     
 }
