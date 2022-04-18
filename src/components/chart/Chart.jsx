@@ -1,6 +1,6 @@
 import '../chart/Chart.scss';
 import React from 'react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis,ResponsiveContainer,PieChart, Pie, LineChart, XAxis, YAxis, Tooltip, Line } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis,ResponsiveContainer,PieChart, Pie, LineChart, XAxis, YAxis, Tooltip, Line, Label } from 'recharts';
 import CustomTooltip from '../customTootip/CustomTooltip';
 
 class Chart extends React.Component {
@@ -50,7 +50,8 @@ class Chart extends React.Component {
             {
                 this.state.type==="average_sessions" ? 
                     <div className="chart average_sessions">
-                        <ResponsiveContainer width="100%" height="100%">
+                        <p className='average_sessions_text'>Durée moyenne des sessions</p>
+                        <ResponsiveContainer width="100%" height="100%"> 
                             <LineChart
                             data={value}
                             margin={{
@@ -60,10 +61,10 @@ class Chart extends React.Component {
                                 bottom: 5,
                             }}
                             >
-                            <XAxis dataKey="day" tickLine={false} axisLine={false} stroke="white" />
-                            <YAxis hide={true} />
+                            <XAxis dataKey="day" tickLine={false} axisLine={false} stroke="white" style={{opacity:"0.5"}} />
+                            <YAxis hide={true} domain={[0,'dataMax + 40']} />
                             <Tooltip content={<CustomTooltip />}/>
-                            <Line type="monotone" dataKey="sessionLength" stroke="white" strokeWidth={2} dot={false} />
+                            <Line type="monotone" dataKey="sessionLength" stroke="white" style={{opacity:"0.5"}} strokeWidth={2} dot={false} />
                             </LineChart>
                         </ResponsiveContainer>
                     </div> : 
