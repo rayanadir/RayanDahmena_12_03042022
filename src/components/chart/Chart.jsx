@@ -1,6 +1,7 @@
 import '../chart/Chart.scss';
 import React from 'react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis,ResponsiveContainer,PieChart, Pie } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis,ResponsiveContainer,PieChart, Pie, LineChart, XAxis, YAxis, Tooltip, Line } from 'recharts';
+import CustomTooltip from '../customTootip/CustomTooltip';
 
 class Chart extends React.Component {
     constructor(props){
@@ -49,7 +50,22 @@ class Chart extends React.Component {
             {
                 this.state.type==="average_sessions" ? 
                     <div className="chart average_sessions">
-
+                        <ResponsiveContainer width="100%" height="100%">
+                            <LineChart
+                            data={value}
+                            margin={{
+                                top: 0,
+                                right: 10,
+                                left: 10,
+                                bottom: 5,
+                            }}
+                            >
+                            <XAxis dataKey="day" tickLine={false} axisLine={false} stroke="white" />
+                            <YAxis hide={true} />
+                            <Tooltip content={<CustomTooltip />}/>
+                            <Line type="monotone" dataKey="sessionLength" stroke="white" strokeWidth={2} dot={false} />
+                            </LineChart>
+                        </ResponsiveContainer>
                     </div> : 
                 this.state.type==="performance" ?
                     <div className="chart performance">
