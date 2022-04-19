@@ -26,6 +26,46 @@
     position: absolute;
     color: white;
     opacity: 0.5;
-    font-size: 16px;
+    font-size: 15px;
     font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+
+
+.score{
+    &__title{
+        margin: 1.2rem;
+        position: absolute;
+        font-family: 'Roboto', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+    }
+    
+    &__value{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        width: 258px;
+        margin-top: 6rem;
+        align-items: center;
+    }
+    
+    &__value_percent{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        color: black;
+        margin: 0;
+    }
+    
+    &__infos{
+        color: #282D30;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        margin: 0;
+        width: 100px;
+        text-align: center;
+    }
 }

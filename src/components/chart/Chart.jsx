@@ -1,7 +1,9 @@
 import '../chart/Chart.scss';
 import React from 'react';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis,ResponsiveContainer,PieChart, Pie, LineChart, XAxis, YAxis, Tooltip, Line, Label } from 'recharts';
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis,ResponsiveContainer,PieChart, Pie, LineChart, XAxis, YAxis, Tooltip, Line, Cell } from 'recharts';
 import CustomTooltip from '../customTootip/CustomTooltip';
+
+const COLORS=['#FF0000','#FFFFFF']
 
 class Chart extends React.Component {
     constructor(props){
@@ -38,13 +40,16 @@ class Chart extends React.Component {
             })
             return sessions;
         }else if(this.state.type==="score"){
-            return this.state.value;
+            const data=[
+                {name:'score', value:this.state.value*100},
+                {name:'difference', value:(1-this.state.value)*100}
+            ]
+            return data;
         }
     }
     
     render(){
        const value= this.formatData();
-       console.log(value);
         return (
         <React.StrictMode>
             {
@@ -73,22 +78,32 @@ class Chart extends React.Component {
                         <ResponsiveContainer width="100%" height="80%" className="radar">
                             <RadarChart outerRadius="80%" data={value} >
                             <PolarGrid radialLines={false}/>
-                            <PolarAngleAxis dataKey="kind_value" stroke='white' tick={{fontSize:11}} tickLine={false} />
+                            <PolarAngleAxis dataKey="kind_value" stroke='white' tick={{fontSize:11, fontWeight:500}} tickLine={false} />
                             <Radar dataKey="value" stroke="#FF0101B2" fill="#FF0101B2" fillOpacity={0.8} />
                             </RadarChart>
                         </ResponsiveContainer>
                     </div> :  
                 this.state.type==="score" ? 
                     <div className="chart score">
+                        <p className='score__title'>Score</p>
+                        <div className="score__value">
+                            <p className='score__value_percent'>{value[0].value}%</p>
+                            <p className='score__infos'>de votre objectif</p>
+                        </div>
                         <ResponsiveContainer width="100%" height="100%">
-                            <PieChart width={400} height={400}>
+                            <PieChart>
                                 <Pie 
-                                data={this.state.value} 
+                                data={value} 
                                 dataKey="value" 
-                                innerRadius={70} 
-                                outerRadius={90} 
-                                fill="#FF0000"
-                                startAngle={90} />
+                                innerRadius={80} 
+                                outerRadius={90}
+                                startAngle={90}
+                                endAngle={450}
+                                >
+                                   {value.map((entry, index) => (
+                                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                    ))} 
+                                </Pie>
                             </PieChart>
                         </ResponsiveContainer>
                     </div> : "" 
