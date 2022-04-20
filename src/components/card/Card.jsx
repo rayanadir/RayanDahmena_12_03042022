@@ -22,7 +22,7 @@ const Card = (props) => {
         icon=protein_icon;
         unit="g";
     }
-    console.log(type+" " +value+unit);
+    //console.log(type+" " +value+unit);
     return(
         <div className="card">
             <img src={icon} alt="icon" className="card__icon"/>

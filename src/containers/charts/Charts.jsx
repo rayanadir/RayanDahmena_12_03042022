@@ -2,7 +2,6 @@ import '../charts/Charts.scss';
 import React from 'react';
 import Chart from '../../components/chart/Chart';
 import ApiData from '../../models/ApiData';
-import ApiFormat from '../../models/ApiFormat';
 
 class Charts extends React.Component {
     constructor(props){
