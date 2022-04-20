@@ -4,6 +4,7 @@ import calorie_icon from '../../assets/keydata_icons/calories-icon.png';
 import glucid_icon from '../../assets/keydata_icons/glucid-icon.png';
 import lipid_icon from '../../assets/keydata_icons/lipid-icon.png';
 import protein_icon from '../../assets/keydata_icons/protein-icon.png';
+import PropTypes from 'prop-types';
 
 const Card = (props) => {
     const type=props.type;
@@ -22,7 +23,6 @@ const Card = (props) => {
         icon=protein_icon;
         unit="g";
     }
-    //console.log(type+" " +value+unit);
     return(
         <div className="card">
             <img src={icon} alt="icon" className="card__icon"/>
@@ -32,6 +32,11 @@ const Card = (props) => {
             </div>
         </div>
     )
+}
+
+Card.propTypes={
+    type:PropTypes.string,
+    value:PropTypes.number
 }
 
 export default Card
