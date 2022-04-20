@@ -1,5 +1,6 @@
 import React from 'react';
 import '../customTootip/CustomTooltip.scss'
+import PropTypes from 'prop-types';
 
 class CustomTooltip extends React.Component{
     render(){
@@ -9,6 +10,11 @@ class CustomTooltip extends React.Component{
         }
         return null;
     }
+}
+
+CustomTooltip.propTypes={
+    payload:PropTypes.array,
+    active:PropTypes.bool
 }
     
 export default CustomTooltip
