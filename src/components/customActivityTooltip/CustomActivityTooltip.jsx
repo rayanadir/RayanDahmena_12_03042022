@@ -1,5 +1,6 @@
 import React from "react";
-import '../customActivityTooltip/CustomActivityTooltip.scss'
+import '../customActivityTooltip/CustomActivityTooltip.scss';
+import PropTypes from 'prop-types';
 
 class CustomActivityTooltip extends React.Component {
     render(){
@@ -12,6 +13,11 @@ class CustomActivityTooltip extends React.Component {
         }
         return null;
     }
+}
+
+CustomActivityTooltip.propTypes={
+    payload:PropTypes.array,
+    active:PropTypes.bool
 }
 
 export default CustomActivityTooltip
