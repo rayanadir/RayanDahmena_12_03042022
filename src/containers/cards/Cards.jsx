@@ -2,6 +2,7 @@ import React from "react";
 import './Cards.scss';
 import Card from "../../components/card/Card";
 import ApiData from "../../models/ApiData";
+import PropTypes from 'prop-types';
 
 class Cards extends React.Component {
     constructor(props){
@@ -28,6 +29,10 @@ class Cards extends React.Component {
             </section>
         )
     }  
+}
+
+Cards.propTypes={
+    id:PropTypes.string,
 }
 
 export default Cards
