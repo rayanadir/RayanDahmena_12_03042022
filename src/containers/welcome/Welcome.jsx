@@ -1,6 +1,7 @@
 import './Welcome.scss'
 import React from 'react'
 import ApiData from '../../models/ApiData';
+import PropTypes from 'prop-types';
 
 class Welcome extends React.Component {
   
@@ -31,6 +32,10 @@ class Welcome extends React.Component {
         </section>
     )
     }
+}
+
+Welcome.propTypes={
+    id:PropTypes.string,
 }
 
 export default Welcome
