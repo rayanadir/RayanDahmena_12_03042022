@@ -1,4 +1,12 @@
 .activity{
     background-color: #FBFBFB;
     border-radius: 5px;
+    &__daily{
+        position: absolute;
+        position: absolute;
+        margin-top: 20px;
+        margin-left: 1rem;
+        font-style: normal;
+        font-weight: 500;   
+    }
 }

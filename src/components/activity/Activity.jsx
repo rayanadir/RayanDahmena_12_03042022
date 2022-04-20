@@ -33,9 +33,10 @@ class Activity extends React.Component {
     return this.state.loading === true ? (
       <div></div>
     ) : (
-          <BarChart data={this.getData()} width={835} height={320} margin={{top: 20,right: 0,left: 0,bottom: 5}} className="activity">
+      <section className="activity">
+        <p className="activity__daily">Activité quotidienne</p>
+        <BarChart data={this.getData()} width={835} height={320} margin={{top: 20,right: 0,left: 0,bottom: 5}} >
             <CartesianGrid strokeDasharray="3 3" vertical={false}/>
-            <Label value="Activité quotidienne" position="top"/>
             <XAxis dataKey="day" tickLine={false} />
             <YAxis orientation="right" yAxisId="right" tickLine={false} axisLine={false} domain={['dataMin - 1','dataMax + 1']}/>
             <YAxis orientation="left" yAxisId="left" domain={['dataMin - 50','dataMax + 50']} hide={true}/>
@@ -44,6 +45,8 @@ class Activity extends React.Component {
             <Bar dataKey="kilogram" name="Poids (kg)" yAxisId="right" fill="#282D30" barSize={7} radius={[50,50,0,0]}/>
             <Bar dataKey="calories" name="Calories brûlées (kCal)" yAxisId="left" fill="#E60000" barSize={7} radius={[50,50,0,0]}/>
           </BarChart>
+      </section>
+          
     )
   }
 } 
