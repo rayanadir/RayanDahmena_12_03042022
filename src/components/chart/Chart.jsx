@@ -2,6 +2,7 @@ import '../chart/Chart.scss';
 import React from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis,ResponsiveContainer,PieChart, Pie, LineChart, XAxis, YAxis, Tooltip, Line, Cell } from 'recharts';
 import CustomTooltip from '../customTootip/CustomTooltip';
+import PropTypes from 'prop-types';
 
 const COLORS=['#FF0000','#FFFFFF']
 
@@ -9,11 +10,10 @@ class Chart extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            id:this.props.id,
             loading:true,
             type:this.props.type,
             value:this.props.value
-        }
+        };
     }
 
     formatData=()=>{
@@ -111,7 +111,11 @@ class Chart extends React.Component {
         </React.StrictMode>
         )
     }
-    
+}
+
+Chart.propTypes={
+    type:PropTypes.string,
+    value:PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number])
 }
 
 export default Chart
