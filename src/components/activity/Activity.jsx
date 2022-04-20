@@ -1,8 +1,9 @@
 import React from "react";
 import '../activity/Activity.scss';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import ApiData from "../../models/ApiData";
 import CustomActivityTooltip from "../customActivityTooltip/CustomActivityTooltip";
+import PropTypes from 'prop-types';
 
 class Activity extends React.Component {
   constructor(props){
@@ -51,4 +52,9 @@ class Activity extends React.Component {
   }
 } 
 
+Activity.propTypes={
+  id:PropTypes.string,
+}
+
 export default Activity
+
