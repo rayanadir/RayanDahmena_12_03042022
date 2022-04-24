@@ -1,7 +1,7 @@
 import React from "react";
 import './Cards.scss';
 import Card from "../../components/card/Card";
-import ApiData from "../../models/ApiData";
+import ApiData from "../../services/ApiData";
 import PropTypes from 'prop-types';
 
 /**
