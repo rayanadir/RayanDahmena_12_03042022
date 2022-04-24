@@ -6,6 +6,10 @@ import { Routes , Route } from "react-router-dom";
 import Dashboard from './views/dashboard/Dashboard';
 import Home from './views/home/Home';
 
+/**
+ * Creates app and routes
+ * @returns { HTMLElement }
+ */
 function App() {
   return (
     <>
