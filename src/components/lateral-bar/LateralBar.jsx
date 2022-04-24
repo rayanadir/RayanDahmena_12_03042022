@@ -5,6 +5,10 @@ import swim from '../../assets/swim.png'
 import bike from '../../assets/bike.png';
 import dumbbell from '../../assets/dumbbell.png'
 
+/**
+ * Creates the vertical header
+ * @returns { HTMLElement }
+ */
 const LateralBar = () => {
     const year= new Date().getFullYear()
     return(
