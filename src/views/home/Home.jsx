@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import '../home/Home.scss'
 
+/**
+ * Creates app home
+ * @returns { HTMLElement }
+ */
 const Home = () => {
     return (
         <section className='home'>
