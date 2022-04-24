@@ -3,17 +3,31 @@
     flex-direction: column;
     top: 300px;
     left: 200px;
-    row-gap: 2rem;
+    height: 620px;
+    justify-content: space-between;
 }
 
 .wrap{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-left: 8rem;
+    margin: auto;
 }
 
 .activity_charts_cards{
     display: flex;
     align-items: center;
+}
+
+@media (min-width:1024px) and (max-width:1240px){
+    .wrap{
+        justify-content: flex-start;
+    }
+    .activity_charts_cards{
+        justify-content: space-between;
+        column-gap: .5rem;
+    }
+    .activity_charts{
+        width: 630px;
+    }
 }

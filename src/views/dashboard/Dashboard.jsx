@@ -6,6 +6,10 @@ import Charts from '../../containers/charts/Charts';
 import Cards from '../../containers/cards/Cards';
 import { useParams } from 'react-router-dom';
 
+/**
+ * Creates app dashboard
+ * @returns { HTMLElement }
+ */
 const Dashboard = () => {
     let {id} = useParams();
     return (
