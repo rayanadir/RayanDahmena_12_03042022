@@ -1,7 +1,7 @@
 import '../charts/Charts.scss';
 import React from 'react';
 import Chart from '../../components/chart/Chart';
-import ApiData from '../../models/ApiData';
+import ApiData from '../../services/ApiData';
 import PropTypes from 'prop-types';
 
 /**
