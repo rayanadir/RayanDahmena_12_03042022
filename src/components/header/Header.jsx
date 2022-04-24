@@ -2,6 +2,10 @@ import React from "react";
 import logo from '../../assets/logo.png';
 import '../header/Header.scss';
 
+/**
+ * Creates the horizontal header
+ * @returns { HTMLElement }
+ */
 const Header = () => {
     return(
         <header className="header">
