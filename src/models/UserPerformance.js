@@ -1,14 +1,44 @@
-export class UserPerformance{
-    userId;
-    kind;
-    data;
-    constructor(userId,kind,data){
-        this.userId=userId;
-        this.kind=kind;
-        this.data=data;
+import { Performance } from "./Performance";
+
+/**
+ * @class
+ * @classdesc UserPerformance class, instantiate all user performances
+ */
+export class UserPerformance {
+    /**
+     * @param { Object } kind list of performances 
+     * @param { Array } data array of user performances 
+     */
+    constructor(kind, data) {
+        for (const key in kind) {
+            /*this[kind[key]] = {
+                label: this.formatLabel(kind[key]),
+                value: data.find((d) => d.kind == key).value
+            };*/
+            this[kind[key]]= new Performance(this.formatLabel(kind[key]),data.find((d) => d.kind == key).value)
+        }
     }
-    static getUserPerformance=async(id)=>{
-        const url = `http://localhost:3000/user/${id}/performance`;
-        return fetch(url).then((res)=> res.json());
+
+    /**
+     * @param { String } labelToFormat name of the label 
+     * @returns translates the label in french
+     */
+    formatLabel(labelToFormat) {
+        switch (labelToFormat) {
+            case 'cardio':
+                return 'Cardio';
+            case 'energy':
+                return 'Energie';
+            case 'endurance':
+                return 'Endurance';
+            case 'strength':
+                return 'Force';
+            case 'speed':
+                return 'Vitesse';
+            case 'intensity':
+                return 'Intensité';
+            default:
+                return labelToFormat;
+        }
     }
 }
