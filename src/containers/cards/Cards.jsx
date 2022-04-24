@@ -4,35 +4,52 @@ import Card from "../../components/card/Card";
 import ApiData from "../../models/ApiData";
 import PropTypes from 'prop-types';
 
+/**
+ * @class
+ * @classdesc Cards class component, renders a group of cards
+ */
 class Cards extends React.Component {
-    constructor(props){
+    /**
+     * Get props and declares states
+     * @param { String } props 
+     */
+    constructor(props) {
         super(props);
-        this.state={
-            id:this.props.id,
-            data:{},
-            loading:true,
-          }
+        this.state = {
+            id: this.props.id,
+            data: {},
+            loading: true,
+        }
     }
-    componentDidMount=()=>{
-        ApiData.getUserMainData(this.state.id).then((res)=>{this.setState({data:res.data.keyData,loading:false})})
+
+    componentDidMount = () => {
+        ApiData.getUserMainData(this.state.id)
+            .then((res) => {
+                this.setState({ data: res.keyData, loading: false })
+            })
     }
-    render(){
-        return this.state.loading=== true ? (
+
+    /**
+     * Renders a group of cards
+     * @returns { HTMLElement }
+     */
+    render() {
+        return this.state.loading === true ? (
             <div></div>
-        ):
-        (
-            <section className="cards">
-                <Card type="Calories" value={this.state.data.calorieCount}/>
-                <Card type="Glucides" value={this.state.data.proteinCount} />
-                <Card type="Lipides" value={this.state.data.carbohydrateCount} />
-                <Card type="Proteines" value={this.state.data.lipidCount} />
-            </section>
-        )
-    }  
+        ) :
+            (
+                <section className="cards">
+                    <Card type="Calories" value={this.state.data.calorieCount} />
+                    <Card type="Glucides" value={this.state.data.proteinCount} />
+                    <Card type="Lipides" value={this.state.data.carbohydrateCount} />
+                    <Card type="Proteines" value={this.state.data.lipidCount} />
+                </section>
+            )
+    }
 }
 
-Cards.propTypes={
-    id:PropTypes.string,
+Cards.propTypes = {
+    id: PropTypes.string,
 }
 
 export default Cards

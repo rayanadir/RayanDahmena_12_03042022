@@ -1,7 +1,13 @@
 .cards{
     display: flex;
     flex-direction: column;
-    width: 300px;
     row-gap: 2.6rem;
-    margin-left: 2rem;
+}
+
+@media (min-width:1024px) and (max-width:1240px){
+    .cards{
+        width: 35%;
+        height: 620px;
+        align-items: center;
+    }
 }
