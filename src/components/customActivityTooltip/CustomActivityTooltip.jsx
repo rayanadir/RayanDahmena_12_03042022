@@ -2,7 +2,15 @@ import React from "react";
 import '../customActivityTooltip/CustomActivityTooltip.scss';
 import PropTypes from 'prop-types';
 
+/**
+ * @class
+ * @classdesc CustomActivityTooltip class component, renders a tooltip
+ */
 class CustomActivityTooltip extends React.Component {
+    /**
+     * Renders a tooltip
+     * @returns { HTMLElement }
+     */
     render(){
         const {payload,active}=this.props;
         if(active && payload){
