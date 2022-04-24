@@ -1,6 +1,6 @@
 import './Welcome.scss'
 import React from 'react'
-import ApiData from '../../models/ApiData';
+import ApiData from '../../services/ApiData';
 import PropTypes from 'prop-types';
 
 /**
