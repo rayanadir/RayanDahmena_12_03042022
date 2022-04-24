@@ -1,5 +1,5 @@
 .card{
-    width: 258px;
+    //width: 258px;
     height: 124px;
     border-radius: 5px;
     background-color: #FBFBFB;
@@ -27,5 +27,18 @@
         font-size: 14px;
         color: #74798C;
         margin-top: 5px;
+    }
+}
+
+@media (min-width:1024px) and (max-width:1240px){
+    .card{
+        min-width: 200px;
+        max-width: 258px;
+        &__value{
+            font-size: 16px;
+        }
+        &__title_value{
+            margin-left: 1rem;
+        }
     }
 }

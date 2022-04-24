@@ -6,6 +6,11 @@ import lipid_icon from '../../assets/keydata_icons/lipid-icon.png';
 import protein_icon from '../../assets/keydata_icons/protein-icon.png';
 import PropTypes from 'prop-types';
 
+/**
+ * Creates a card
+ * @param { String } props 
+ * @returns { HTMLElement } returns a card
+ */
 const Card = (props) => {
     const type=props.type;
     let icon,unit;
