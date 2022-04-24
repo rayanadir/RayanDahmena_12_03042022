@@ -69,3 +69,24 @@
         text-align: center;
     }
 }
+
+@media (min-width:1024px) and (max-width:1240px){
+    .chart{
+        width: 200px;
+        height: 200px;
+    }
+    .average_sessions_text{
+        margin: 6px;
+        font-size: 14px;
+        width: 178px;
+    }
+    .score{
+        &__title{
+            margin: 1rem;
+        }
+        &__value{
+            margin-top: 3.7rem;
+            width: 200px;
+        }
+    }
+}
