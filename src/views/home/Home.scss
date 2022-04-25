@@ -1,0 +1,12 @@
+.home{
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+    margin: auto;
+    &__button{
+        padding: .5rem 1rem ;
+        cursor: pointer;
+        border-radius: 5px;
+        border: 0;
+    }
+}
