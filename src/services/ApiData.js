@@ -4,14 +4,14 @@ import { UserPerformance } from "../models/UserPerformance";
 import { UserActivityAverageSession } from "../models/UserActivityAverageSession";
 
 class ApiData {
+    static url=`http://localhost:3000/user/`;
     /**
      * get user main data from API
      * @param { String } id user id 
      * @returns { Object }
      */
     static getUserMainData = async (id) => {
-        const url = `http://localhost:3000/user/${id}`;
-        return fetch(url)
+        return fetch(ApiData.url + id)
             .then((res) => res.json())
             .then(({ data }) => new UserMainData(data.id, data.userInfos, data.todayScore || data.score, data.keyData));
     }
@@ -22,8 +22,7 @@ class ApiData {
      * @returns { Object }
      */
     static getUserActivity = async (id) => {
-        const url = `http://localhost:3000/user/${id}/activity`;
-        return fetch(url)
+        return fetch(ApiData.url + id + '/activity')
             .then((res) => res.json())
             .then(({ data }) => new UserActivity(data.userId, data.sessions));
     }
@@ -34,10 +33,9 @@ class ApiData {
      * @returns { Object }
      */
     static getUserPerformance = async (id) => {
-        const url = `http://localhost:3000/user/${id}/performance`;
-        return fetch(url)
+        return fetch(ApiData.url + id + '/performance')
             .then((res) => res.json())
-            .then(({data})=> new UserPerformance(data.kind,data.data));
+            .then(({ data }) => new UserPerformance(data.kind, data.data));
     }
 
     /**
@@ -46,10 +44,9 @@ class ApiData {
      * @returns { Object }
      */
     static getUserAverageSessions = async (id) => {
-        const url = `http://localhost:3000/user/${id}/average-sessions`;
-        return fetch(url)
+        return fetch(ApiData.url + id + '/average-sessions')
             .then((res) => res.json())
-            .then(({data})=> new UserActivityAverageSession(data.userId,data.sessions));
+            .then(({ data }) => new UserActivityAverageSession(data.userId, data.sessions));
     }
 }
 
